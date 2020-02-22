@@ -1,35 +1,38 @@
 function Theme(a) {
 	var name = a;
 	switch (name) {
+		case 0:
+			name = 'hex';
+			break;
 		case 1:
-			name = 'Sky';
+			name = 'sky';
 			break;
 		case 2:
-			name = 'Ice';
+			name = 'ice';
 			break;
 		case 3:
-			name = 'Hills';
+			name = 'hills';
 			break;
 		case 4:
-			name = 'Island';
+			name = 'island';
 			break;
 		case 5:
-			name = 'Desert';
+			name = 'desert';
 			break;
 		case 6:
-			name = 'Swamp';
+			name = 'swamp';
 			break;
 		case 7:
-			name = 'Mountain';
+			name = 'mountain';
 			break;
 		case 8:
-			name = 'Cave';
+			name = 'cave';
 			break;
 		case 9:
-			name = 'Woods';
+			name = 'forest';
 			break;
 		case 10:
-			name = 'City';
+			name = 'city';
 			break;
 		default:
 			name = 'Error! unknown theme ' + a + '';

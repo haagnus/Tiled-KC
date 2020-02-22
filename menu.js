@@ -3,7 +3,7 @@ function MenuShowdata(a, b) {
 		tiled.warn(a)
 	});
 
-	action.text = 'Show data ' + b + '',
+	action.text = 'Log map data console ' + b + '',
 	//action.checkable = true,
 	action.shortcut = 'Ctrl+K',
 

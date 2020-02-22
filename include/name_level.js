@@ -1,5 +1,5 @@
 function LevelName(a) {
-	var name = a;
+	var name = a.slice(-6).substr(0, 2).toUpperCase().toString();
 	switch (name) {
 		case "00":
 			name = "Under Skull Mountain 2";
