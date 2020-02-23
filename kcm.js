@@ -6,6 +6,10 @@ function Hex(a) {
 	return (a < 10 ? '0' : '') + a.toString(16).toUpperCase();
 }
 
+function Open() {
+	tiled.Open('map4.kcm');
+}
+
 var kcmMapFormat = {	
     name: 'Kid Chameleon map',
     extension: 'kcm',
@@ -14,11 +18,7 @@ var kcmMapFormat = {
 		let kcb = new BinaryFile(fileName, BinaryFile.ReadOnly);
 		let bit = new Uint8Array(kcb.readAll());
 			
-			if(Check(bit) === true) {
-					let tile = 16;
-					let level_horizontal = 320;
-					let level_vertical = 224;
-					
+			if(ValidateMap(bit) === true) {				
 					let levelsize_x = (bit[6] * 20);
 					let levelsize_y = (bit[7] * 14);
 						 let flag_a = bit[8];
@@ -27,15 +27,15 @@ var kcmMapFormat = {
 						let start_y = bit[13] + bit[12];
 						  let end_x = bit[15] + bit[14];
 						  let end_y = bit[17] + bit[16];
-					let foreground = (bit[0x13] << 8)+ bit[0x12];
-						let blocks = bit[21] + bit[20];
-					let background = bit[23] + bit[22];
+					let foreground = (bit[0x13] << 8) + bit[0x12];
+						let blocks = (bit[0x15] << 8) + bit[0x14];
+					let background = (bit[0x17] << 8) + bit[0x16];
 					   let enemies = (bit[0x19] << 8) + bit[0x18];
 					   
 				tiled.log('Level: ' + LevelName(fileName));
 				tiled.log('Theme: ' + flag_a + ' = ' + Theme(flag_a) + ' theme');
-				tiled.log('Width: ' + levelsize_x + ' screens = ' + (levelsize_x * level_horizontal / tile) + ' tiles');
-				tiled.log('Height: ' + levelsize_y + ' screens = ' + (levelsize_y * level_vertical / tile) + ' tiles');
+				tiled.log('Width: ' + bit[6] + ' screens = ' + levelsize_x + ' tiles');
+				tiled.log('Height: ' + bit[7] + ' screens = ' + levelsize_y + ' tiles');
 				
 				MenuShowdata(bit, LevelName(fileName));
 				

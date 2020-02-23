@@ -1,4 +1,4 @@
-function Check(bit) {
+function ValidateMap(bit) {
 	//File is too small to be bit valid map. Min. size: 20x14 tiles, no blocks, enemies or background
 	if(bit.length < 319)	{
 		tiled.error('Error: kcm file is too small.');
